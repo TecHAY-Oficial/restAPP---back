@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
+import UserController from './app/controllers/UserController';
+
 const routes = new Router();
 
-routes.use('/', (req, res) => {
-  return res.json({ nada: 'nada' });
-});
+routes.use('/restaurant/employee', UserController.store);
 
 export default routes;
