@@ -15,7 +15,7 @@ class Restaurant extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Address, { foreignKey: 'address_id' });
+    this.belongsTo(models.Address, { foreignKey: 'address_id', as: 'address' });
   }
 }
 

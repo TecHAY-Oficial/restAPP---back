@@ -10,11 +10,11 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 
 routes.post('/sessions', SessionController.store);
+routes.post('/restaurant/employee', UserController.store);
 
 routes.use(authMiddleware);
 routes.post('/restaurant', RestaurantController.store);
 routes.get('/restaurant', RestaurantController.index);
-routes.post('/restaurant/employee', UserController.store);
 routes.post('/address', AddressController.store);
 
 export default routes;
