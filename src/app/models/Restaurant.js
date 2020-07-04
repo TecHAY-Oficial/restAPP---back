@@ -11,6 +11,11 @@ class Restaurant extends Model {
         sequelize,
       }
     );
+    return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Address, { foreignKey: 'address_id' });
   }
 }
 

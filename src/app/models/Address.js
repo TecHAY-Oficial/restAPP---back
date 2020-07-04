@@ -6,7 +6,7 @@ class Address extends Model {
       {
         street: Sequelize.STRING,
         number: Sequelize.STRING,
-        postalCode: Sequelize.STRING,
+        postal_code: Sequelize.STRING,
         state: Sequelize.STRING,
         city: Sequelize.STRING,
       },
