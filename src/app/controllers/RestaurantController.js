@@ -6,7 +6,7 @@ import Address from '../models/Address';
 class RestaurantController {
   async index(req, res) {
     const { name, phone, address } = await Restaurant.findOne({
-      where: { id: req.query.id },
+      where: { id: req.params.id },
       include: [
         {
           model: Address,

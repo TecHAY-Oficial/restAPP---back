@@ -14,7 +14,7 @@ routes.post('/restaurant/employee', UserController.store);
 
 routes.use(authMiddleware);
 routes.post('/restaurant', RestaurantController.store);
-routes.get('/restaurant', RestaurantController.index);
+routes.get('/restaurant/:id', RestaurantController.index);
 routes.post('/address', AddressController.store);
 
 export default routes;
