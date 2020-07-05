@@ -6,6 +6,7 @@ import RestaurantController from './app/controllers/RestaurantController';
 import AddressController from './app/controllers/AddressController';
 import TableController from './app/controllers/TableController';
 import CategoriesController from './app/controllers/CategoriesController';
+import ProductController from './app/controllers/ProductController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -20,6 +21,7 @@ routes.post('/restaurant', RestaurantController.store);
 routes.post('/restaurant/table', TableController.store);
 routes.get('/restaurant/:id', RestaurantController.index);
 routes.post('/menu/categories', CategoriesController.store);
+routes.post('/menu/categories/products', ProductController.store);
 routes.post('/address', AddressController.store);
 
 export default routes;
