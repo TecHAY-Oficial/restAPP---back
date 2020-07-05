@@ -7,9 +7,11 @@
 
 - POST/GET        /restaurant -> Rota para cadastrar um restaurante
 
-- POST/GET        /restaurant/:id/table -> Rota para cadastrar mesas
+- POST/GET        /restaurant/table -> Rota para cadastrar mesas
 
-- POST/GET        /restaurant/employee -> Rota para cadastrar e pegar funcionarios 
+- POST       /restaurant/employee -> Rota para cadastrar funcionario
+
+- GET        /restaurant/:id/employee -> Rota para pegar funcionarios 
 
 - GET             /restaurant/:idRestaurante -> Rota para pegar os dados de um restaurante
 
