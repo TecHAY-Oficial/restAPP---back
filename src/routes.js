@@ -11,6 +11,7 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 
 routes.post('/sessions', SessionController.store);
+routes.get('/restaurant/:id/employee', UserController.index);
 routes.post('/restaurant/employee', UserController.store);
 
 routes.use(authMiddleware);

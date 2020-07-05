@@ -2,6 +2,18 @@ import * as Yup from 'yup';
 import User from '../models/User';
 
 class UserController {
+  async index(req, res) {
+    const employees = await User.findAll({
+      where: {
+        is_restaurant: false,
+        restaurant_id: req.params.id,
+      },
+      attributes: ['id', 'name', 'email'],
+    });
+
+    return res.json(employees);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),

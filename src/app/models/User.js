@@ -25,6 +25,13 @@ class User extends Model {
     });
   }
 
+  static associate(models) {
+    this.belongsTo(models.Restaurant, {
+      foreignKey: 'restaurant_id',
+      as: 'restaurant_user',
+    });
+  }
+
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
   }
