@@ -5,6 +5,8 @@ import Command from '../models/Command';
 import Product from '../models/Product';
 import Table from '../models/Table';
 
+import Notification from '../schemas/Notification';
+
 class CommandController {
   async store(req, res) {
     const schema = Yup.object().shape({
@@ -29,6 +31,17 @@ class CommandController {
     }
 
     const { product_id, table_id } = await Command.create(req.body);
+
+    // Notify employee
+
+    const { restaurant_id, number } = await Table.findOne({
+      where: { id: req.body.table_id },
+    });
+
+    await Notification.create({
+      content: `Novo pedido na mesa ${number}`,
+      restaurant: restaurant_id,
+    });
 
     return res.json({
       product_id,
