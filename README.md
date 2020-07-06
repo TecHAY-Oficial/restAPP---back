@@ -19,6 +19,8 @@
 
 - GET             /menu/categories/:category -> Rota para pegar o cardapio por categoria
 
+- POST            /menu/categories/products -> Rota para cadastrar produto
+
 - POST            /menu/categories -> Rota para cadastrar categoria
 
 - POST|GET        /requests -> Rota para pedidos
