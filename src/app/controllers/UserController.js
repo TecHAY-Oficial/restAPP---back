@@ -1,8 +1,10 @@
 import * as Yup from 'yup';
+
 import User from '../models/User';
 import Restaurant from '../models/Restaurant';
 
-import Mail from '../../lib/Mail';
+import UserCreateMail from '../jobs/UserCreateMail';
+import Queue from '../../lib/Queue';
 
 class UserController {
   async index(req, res) {
@@ -46,7 +48,7 @@ class UserController {
       return res.status(400).json({ error: 'User already register' });
     }
 
-    const { id, name, email, created_at } = await User.create(req.body);
+    const { id, name, email, createdAt } = await User.create(req.body);
 
     const { restaurant_user } = await User.findOne({
       where: { id },
@@ -59,15 +61,11 @@ class UserController {
       ],
     });
 
-    await Mail.sendMail({
-      to: `${name} <${email}>`,
-      subject: 'Funcionario criado com sucesso!',
-      template: 'userCreate',
-      context: {
-        user: name,
-        restaurant: restaurant_user.name,
-        date: created_at,
-      },
+    await Queue.add(UserCreateMail.key, {
+      name,
+      email,
+      restaurant_user,
+      createdAt,
     });
 
     return res.json({
