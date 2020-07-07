@@ -8,6 +8,7 @@ import TableController from './app/controllers/TableController';
 import CategoriesController from './app/controllers/CategoriesController';
 import ProductController from './app/controllers/ProductController';
 import CommandController from './app/controllers/CommandController';
+import NotificationController from './app/controllers/NotificationController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -26,6 +27,11 @@ routes.post('/restaurant', RestaurantController.store);
 routes.get('/restaurant/:id', RestaurantController.index);
 
 routes.post('/restaurant/table', TableController.store);
+
+routes.delete('/commands/:id', CommandController.delete);
+
+routes.get('/notifications', NotificationController.index);
+routes.put('/notifications/:id', NotificationController.update);
 
 routes.post('/menu/categories', CategoriesController.store);
 routes.post('/menu/categories/products', ProductController.store);

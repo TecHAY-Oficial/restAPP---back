@@ -1,9 +1,13 @@
-import { Model } from 'sequelize';
+import { Model, Sequelize } from 'sequelize';
 
 class Command extends Model {
   static init(sequelize) {
     super.init(
-      {},
+      {
+        cooked: Sequelize.BOOLEAN,
+        delivered: Sequelize.BOOLEAN,
+        canceled: Sequelize.BOOLEAN,
+      },
       {
         sequelize,
       }

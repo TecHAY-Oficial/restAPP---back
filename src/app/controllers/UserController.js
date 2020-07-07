@@ -1,5 +1,8 @@
 import * as Yup from 'yup';
 import User from '../models/User';
+import Restaurant from '../models/Restaurant';
+
+import Mail from '../../lib/Mail';
 
 class UserController {
   async index(req, res) {
@@ -43,12 +46,35 @@ class UserController {
       return res.status(400).json({ error: 'User already register' });
     }
 
-    const { id, name, email } = await User.create(req.body);
+    const { id, name, email, created_at } = await User.create(req.body);
+
+    const { restaurant_user } = await User.findOne({
+      where: { id },
+      include: [
+        {
+          model: Restaurant,
+          as: 'restaurant_user',
+          attributes: ['id', 'name'],
+        },
+      ],
+    });
+
+    await Mail.sendMail({
+      to: `${name} <${email}>`,
+      subject: 'Funcionario criado com sucesso!',
+      template: 'userCreate',
+      context: {
+        user: name,
+        restaurant: restaurant_user.name,
+        date: created_at,
+      },
+    });
 
     return res.json({
       id,
       name,
       email,
+      restaurant_user,
     });
   }
 }

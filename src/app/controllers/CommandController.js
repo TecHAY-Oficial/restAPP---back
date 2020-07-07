@@ -6,6 +6,7 @@ import Product from '../models/Product';
 import Table from '../models/Table';
 
 import Notification from '../schemas/Notification';
+import User from '../models/User';
 
 class CommandController {
   async store(req, res) {
@@ -47,6 +48,24 @@ class CommandController {
       product_id,
       table_id,
     });
+  }
+
+  async delete(req, res) {
+    const userExist = await User.findByPk(req.userId);
+
+    if (!userExist) {
+      return res.status(401).json({ error: "You don't have permission!" });
+    }
+
+    const command = await Command.findOne({
+      where: { id: req.params.id },
+    });
+
+    command.canceled = true;
+
+    await command.save();
+
+    return res.json(command);
   }
 }
 
