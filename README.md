@@ -3,7 +3,7 @@
 
 <h3 align="center">
 
-FastFeet - Project é um projeto **Open Source** desenvolvido a fim de melhorar minhas habilidades em ***ExpressJS, Javascript, REST API, NodeJS, JsonWebToken, YUP***.
+restAPP é um projeto **Open Source** desenvolvido a fim de melhorar minhas habilidades em ***ExpressJS, Javascript, REST API, NodeJS, JsonWebToken, YUP***.
 
 </h3>
 
@@ -20,6 +20,27 @@ A aplicação desenvolvida é um servidor em nodejs utlizando o express para uma
   - **[JsonWebToken][jsonwebtoken]**
   - **[Bcryptjs][bcryptjs]**
   - **[Sequelize][sequelize]**
+  - **[Bee-queue](https://github.com/bee-queue/bee-queue)**
+  - **[Date-FNS](https://date-fns.org/)**
+  - **[Express](https://expressjs.com/)**
+  - **[Mongoose](https://mongoosejs.com/)**
+  - **[NodeMailer](https://nodemailer.com/about/)**
+  
+    "date-fns": "^2.0.0-beta.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-handlebars": "^4.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.21",
+    "nodemailer": "^6.4.10",
+    "nodemailer-express-handlebars": "^4.0.0",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.13",
+    "sequelize-cli": "^5.5.1",
+    "youch": "^2.0.10",
+    "yup": "^0.29.1"
 
   \* Veja o arquivo <kbd>[package.json](./sources/website/package.json)</kbd>
 
