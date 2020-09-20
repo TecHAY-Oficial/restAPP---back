@@ -9,7 +9,7 @@ restAPP é um projeto **Open Source** desenvolvido a fim de melhorar minhas habi
 
 ## **:rocket: OBJETIVO**
 
-A aplicação desenvolvida é um servidor em nodejs utlizando o express para uma transportadora fictícia, o FastFeet, para melhorar os meus conhecimentos em ExpressJS.
+A aplicação desenvolvida é um servidor em nodejs utlizando o express para um aplicativo de restaurante, o restAPP, para melhorar os meus conhecimentos em ExpressJS.
 
 ## **:computer: TECNOLOGIAS**
 
