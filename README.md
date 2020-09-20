@@ -26,7 +26,7 @@ A aplicação desenvolvida é um servidor em nodejs utlizando o express para uma
   - **[Mongoose](https://mongoosejs.com/)**
   - **[NodeMailer](https://nodemailer.com/about/)**
 
-  \* Veja o arquivo <kbd>[package.json](./sources/website/package.json)</kbd>
+  \* Veja o arquivo <kbd>[package.json](./sources/website/package.json)</kbd> *\
 
 ## Rotas
 
